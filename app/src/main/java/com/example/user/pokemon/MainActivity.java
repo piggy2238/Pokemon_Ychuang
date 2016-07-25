@@ -8,19 +8,22 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 //implements 使用 "類型"."想做的事" 會自行生成他所需要的格式在下方, 使用Override為開頭,
 //並將我們要做的設定及判斷寫在對應的 { } 內.
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener,EditText.OnEditorActionListener
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener,EditText.OnEditorActionListener,CheckBox.OnCheckedChangeListener
 {
     //宣告變數 Android 元件 與其 id
     TextView infoText;
     EditText name;
     RadioGroup radioGroup;
     Button button;
+    CheckBox checkBox;
     int selectOptionIndex = 0; //預設選第0個
 
     String[] pokemonNames = new String[]{
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //1.找到radio group 2. 設定listener: radio group 的動作是 check,
         radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
+
+        //CheckBox Setting
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener(this);
     }
 
     //設定當上述物件 listen 後的執行動作 (類似function的概念)
@@ -63,9 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int viewId = view.getId();
         if (viewId == R.id.button){
-            //當button被按下後, 要改變infoText裡面的文字
-            //文字中兩個變數分別是來自 name 變數設定的值, 以及選擇後的pokemon的編號對照的神奇寶貝.
-            infoText.setText(String.format("你好,訓練家%s 歡迎來到神奇寶貝的世界\n 你的第一支夥伴是%s",name.getText(),pokemonNames[selectOptionIndex]));
+            if (checkBox.isChecked()) {
+                //當button被按下後, 要改變infoText裡面的文字
+                //文字中兩個變數分別是來自 name 變數設定的值, 以及選擇後的pokemon的編號對照的神奇寶貝.
+                infoText.setText(String.format("你好,訓練家 歡迎來到神奇寶貝的世界\n 你的第一支夥伴是%s", pokemonNames[selectOptionIndex]));
+            }else{
+                infoText.setText(String.format("你好,訓練家%s 歡迎來到神奇寶貝的世界\n 你的第一支夥伴是%s", name.getText(), pokemonNames[selectOptionIndex]));
+            }
 
         }
     }
@@ -93,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     //功能三:抓取鍵盤按鍵的event
     @Override
     public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -108,5 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }
         return false;
+    }
+
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
     }
 }

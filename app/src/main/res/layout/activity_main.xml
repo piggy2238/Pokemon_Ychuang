@@ -49,11 +49,13 @@
             android:layout_marginRight="15dp" />
 
         <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_alignLeft="@+id/name"
-            android:layout_alignStart="@+id/name">
+            android:layout_alignStart="@+id/name"
+            android:id="@+id/radioGroup"
+            android:layout_centerVertical="true">
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -61,7 +63,29 @@
                 android:text="心臟科"
                 android:id="@+id/radioButton"
                 android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="復健科"
+                android:id="@+id/radioButton2"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="骨科"
+                android:id="@+id/radioButton3"
+                android:checked="false" />
         </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="確認"
+            android:id="@+id/button"
+            android:layout_below="@+id/radioGroup"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -18,12 +18,13 @@ import android.widget.TextView;
 //並將我們要做的設定及判斷寫在對應的 { } 內.
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener,EditText.OnEditorActionListener,CheckBox.OnCheckedChangeListener
 {
-    //宣告變數 Android 元件 與其 id
+    //宣告變數 Android 元件 與其 在java的變數名稱
     TextView infoText;
     EditText name;
     RadioGroup radioGroup;
     Button button;
     CheckBox checkBox;
+    boolean hide = true; //一開始預設訓練加名稱要 hide
     int selectOptionIndex = 0; //預設選第0個
 
     String[] pokemonNames = new String[]{
@@ -70,14 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int viewId = view.getId();
         if (viewId == R.id.button){
-            if (checkBox.isChecked()) {
-                //當button被按下後, 要改變infoText裡面的文字
-                //文字中兩個變數分別是來自 name 變數設定的值, 以及選擇後的pokemon的編號對照的神奇寶貝.
-                infoText.setText(String.format("你好,訓練家 歡迎來到神奇寶貝的世界\n 你的第一支夥伴是%s", pokemonNames[selectOptionIndex]));
+            if(hide) {
+                infoText.setText(String.format("你好,訓練家 歡迎來到神奇寶貝的世界\n 你的第一隻夥伴是%s", pokemonNames[selectOptionIndex]));
             }else{
-                infoText.setText(String.format("你好,訓練家%s 歡迎來到神奇寶貝的世界\n 你的第一支夥伴是%s", name.getText(), pokemonNames[selectOptionIndex]));
+                infoText.setText(String.format("你好,訓練家%s 歡迎來到神奇寶貝的世界\n 你的第一隻夥伴是%s", name.getText(), pokemonNames[selectOptionIndex]));
             }
-
         }
     }
 
@@ -120,9 +118,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-
+    //功能四:抓取checkbox是否選取, 若選取則 hide==true; 若無則 hide==false
     @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        int compoundButtonId=compoundButton.getId();
+        if (compoundButtonId == R.id.checkBox){
+            if(isChecked){
+                hide = true;
+            }else{
+                hide = false;
+            }
+        }
     }
 }

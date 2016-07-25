@@ -27,8 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="實習醫生您好,請選擇你想要去的實習項目"
-            android:id="@+id/infoText" />
+            android:text="歡迎光臨神奇寶貝世界,\n請選擇你的夥伴吧"
+            android:id="@+id/infoText"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -51,31 +53,30 @@
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
-            android:layout_alignLeft="@+id/name"
-            android:layout_alignStart="@+id/name"
             android:id="@+id/radioGroup"
-            android:layout_centerVertical="true">
+            android:layout_below="@+id/name"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="心臟科"
-                android:id="@+id/radioButton"
+                android:text="小火龍"
+                android:id="@+id/radioButton0"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="傑尼龜"
+                android:id="@+id/radioButton1"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="復健科"
+                android:text="妙蛙種子"
                 android:id="@+id/radioButton2"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="骨科"
-                android:id="@+id/radioButton3"
                 android:checked="false" />
         </RadioGroup>
 

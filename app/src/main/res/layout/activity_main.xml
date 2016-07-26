@@ -16,7 +16,7 @@
         android:id="@+id/imageView"
         android:src="@drawable/pokemon"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1.5" />
+        android:layout_weight="1.8" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,10 +27,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="歡迎光臨神奇寶貝世界,\n請選擇你的夥伴吧"
+            android:text="歡迎光臨神奇寶貝世界,\n想成為訓練家嗎?\n請選擇你的夥伴吧"
             android:id="@+id/infoText"
-            android:layout_alignParentStart="false"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="50dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -39,13 +41,8 @@
             android:ems="12"
             android:id="@+id/name"
             android:layout_below="@+id/infoText"
-            android:layout_alignParentLeft="false"
             android:layout_alignParentStart="false"
             android:hint="來吧,先讓我知道你叫什麼名字"
-            android:layout_alignWithParentIfMissing="false"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentRight="false"
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:layout_centerHorizontal="true" />
@@ -96,6 +93,9 @@
             android:layout_height="wrap_content"
             android:text="確認"
             android:id="@+id/button"
+            android:layout_alignStart="@+id/infoText"
+            android:layout_marginLeft="38dp"
+            android:layout_marginStart="38dp"
             android:layout_below="@+id/radioGroup"
             android:layout_centerHorizontal="true" />
 
@@ -104,12 +104,12 @@
             android:layout_height="wrap_content"
             android:text="Hide"
             android:id="@+id/checkBox"
-            android:layout_above="@+id/radioGroup"
-            android:layout_toRightOf="@+id/name"
             android:checked="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:layout_alignBaseline="@+id/button"
+            android:layout_alignBottom="@+id/button"
+            android:layout_toRightOf="@+id/button"
+            android:layout_toEndOf="@+id/button" />
 
     </RelativeLayout>
 </LinearLayout>

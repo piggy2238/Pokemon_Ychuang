@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int viewId = view.getId();
         if (viewId == R.id.button){
             if(hide) {
-                infoText.setText(String.format("你好,訓練家 歡迎來到神奇寶貝的世界\n 你的第一隻夥伴是%s", pokemonNames[selectOptionIndex]));
+                infoText.setText(String.format("你好,訓練家 \n歡迎來到神奇寶貝的世界\n你的第一隻夥伴是%s", pokemonNames[selectOptionIndex]));
             }else{
-                infoText.setText(String.format("你好,訓練家%s 歡迎來到神奇寶貝的世界\n 你的第一隻夥伴是%s", name.getText(), pokemonNames[selectOptionIndex]));
+                infoText.setText(String.format("你好,訓練家%s \n歡迎來到神奇寶貝的世界\n你的第一隻夥伴是%s", name.getText(), pokemonNames[selectOptionIndex]));
             }
         }
     }
